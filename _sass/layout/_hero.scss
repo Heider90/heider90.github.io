@@ -196,3 +196,23 @@ html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* --------------------------------------------------------------------------
+   Sidebar on the landing page
+
+   At desktop widths the author sidebar is position: fixed, which pins it to
+   the viewport from the very top and lays it over the hero. On the landing
+   page the hero owns the first screen, so let the sidebar sit in normal flow
+   at the top of the content instead and stick from there once reached.
+   -------------------------------------------------------------------------- */
+
+@media screen and (min-width: $sidebar-screen-min-width) {
+  #main.layout--home .sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: $masthead-height;
+    height: auto;
+    max-height: calc(100vh - #{$masthead-height});
+    padding-top: 0;
+  }
+}
