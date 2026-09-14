@@ -243,3 +243,26 @@
     }
   }
 }
+
+/* --------------------------------------------------------------------------
+   Archive pages without an author profile
+
+   .archive is offset to leave room for the sidebar. When a page turns the
+   author profile off there is no sidebar to make room for, so let the list
+   reclaim the full content width instead of leaving an empty gutter.
+   -------------------------------------------------------------------------- */
+
+#main.layout--no-sidebar {
+  .archive {
+    @include breakpoint($large) {
+      @include span(12 of 12 last);
+      @include prefix(0);
+    }
+  }
+
+  .page__title {
+    @include breakpoint($large) {
+      padding-left: 0;
+    }
+  }
+}
