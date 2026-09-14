@@ -17,9 +17,9 @@
   /* keep footer in normal document flow so custom widgets do not overlap content */
   height: auto;
 
-  /* keep the footer on the bottom of the page */
-  position: fixed;
-  bottom: 0;
+  /* Sits at the end of the content rather than pinned to the viewport, so it
+     does not follow the reader down every page. */
+  position: static;
 
   -webkit-animation: intro 0.3s both;
           animation: intro 0.3s both;
@@ -101,4 +101,12 @@
       white-space: nowrap;
     }
   }
+}
+
+/* The theme's sticky-footer script sets an inline margin-bottom on <body> equal
+   to the footer height, to reserve space for the fixed bar. With the footer back
+   in normal flow that would just be a gap at the end of every page. The bundled
+   JS is minified and cannot be rebuilt here, so override the inline style. */
+body {
+  margin-bottom: 0 !important;
 }
