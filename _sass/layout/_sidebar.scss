@@ -307,6 +307,14 @@
     white-space: nowrap;
   }
 
+  // Location and employer are prose, not links: let them wrap instead of
+  // overflowing the sidebar, with a hanging indent clearing the icon.
+  li.author__desktop {
+    white-space: normal;
+    padding-left: 2.25em;
+    text-indent: -2.25em;
+  }
+
   a {
     display: block;
     margin-bottom: 5px;
