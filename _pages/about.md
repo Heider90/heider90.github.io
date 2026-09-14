@@ -6,6 +6,7 @@ author_profile: true
 redirect_from: 
   - /about/
   - /about.html
+backdrop: true
 ---
 
 I am an economist at the [Austrian Institute of Economic Research (WIFO)](https://www.wifo.ac.at/) in Vienna and a Ph.D. candidate at the [Vienna University of Economics and Business (WU)](https://www.wu.ac.at/), where I also teach.
