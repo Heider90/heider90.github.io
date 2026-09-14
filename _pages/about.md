@@ -1,4 +1,5 @@
 ---
+layout: home
 permalink: /
 title: "About me"
 author_profile: true
@@ -20,12 +21,12 @@ Alongside my research I teach the undergraduate course *Databases and Methods of
 My work has appeared in *The World Economy* and *Perspektiven der Wirtschaftspolitik*, as well as in policy reports for wiiw and the Austrian National Bank. I also write for wider audiences, including CEPR/VoxEU, the *Frankfurter Allgemeine Zeitung*, and *profil*.
 
 Research interests
-======
+------
 * International trade and trade policy
 * Economic sanctions and geoeconomics
 * Applied econometrics: structural gravity estimation, dyadic panel data, high-dimensional fixed effects
 * Empirical data infrastructure for policy research
 
 Contact
-======
+------
 You can reach me at [heider.kariem@wifo.ac.at](mailto:heider.kariem@wifo.ac.at). Links to my profiles are in the sidebar.

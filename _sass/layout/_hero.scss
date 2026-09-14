@@ -1,0 +1,198 @@
+/* ==========================================================================
+   LANDING HERO
+   Full-bleed opening panel on the home page. Self-contained: it carries its
+   own palette rather than the theme variables, so it stays legible whatever
+   the surrounding theme does.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/assets/fonts/montserrat-var.woff2") format("woff2-variations"),
+       url("/assets/fonts/montserrat-var.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+$hero-bg      : #0b0e13;
+$hero-fg      : #ffffff;
+$hero-muted   : #dbe5ef;
+$hero-eyebrow : #b9cbe1;
+$hero-accent  : #c8463a;
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  padding: 96px 0 72px;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: $hero-bg;
+  color: $hero-fg;
+  font-family: "Montserrat", $sans-serif;
+
+  // The masthead is fixed, so keep the copy clear of it.
+  padding-top: 120px;
+
+  @media screen and (max-width: 768px) {
+    min-height: auto;
+    padding: 104px 0 64px;
+  }
+
+  &__graphic {
+    position: absolute;
+    top: 50%;
+    right: -6%;
+    transform: translateY(-50%);
+    width: min(66%, 960px);
+    max-height: 112%;
+    aspect-ratio: 1;
+    pointer-events: none;
+
+    // On narrow screens the graphic sits behind the text, so pull it back.
+    @media screen and (max-width: 900px) {
+      right: -25%;
+      width: 125%;
+      opacity: 0.45;
+    }
+  }
+
+  // Knocks the graphic back so the copy stays readable over it.
+  &__scrim {
+    position: absolute;
+    inset: 0;
+    background: $hero-bg;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  &__inner {
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+  }
+
+  &__copy {
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__eyebrow {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $hero-eyebrow;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: clamp(38px, 5.4vw, 68px);
+    line-height: 1.03;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    text-wrap: balance;
+    color: $hero-fg;
+  }
+
+  &__rule {
+    width: 64px;
+    height: 2px;
+    background: $hero-accent;
+  }
+
+  &__lead {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.55;
+    color: $hero-muted;
+    max-width: 52ch;
+    text-wrap: pretty;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 8px;
+  }
+
+  &__btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+
+    &--solid {
+      background: $hero-fg;
+      color: $hero-bg;
+
+      &:hover,
+      &:focus {
+        background: $hero-muted;
+        color: $hero-bg;
+      }
+    }
+
+    &--ghost {
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      color: $hero-fg;
+
+      &:hover,
+      &:focus {
+        border-color: $hero-fg;
+        background: rgba(255, 255, 255, 0.08);
+        color: $hero-fg;
+      }
+    }
+  }
+
+  // Chevron cue that the page continues below the fold.
+  &__scroll {
+    position: absolute;
+    left: 50%;
+    bottom: 28px;
+    width: 18px;
+    height: 18px;
+    margin-left: -9px;
+    border-right: 2px solid rgba(255, 255, 255, 0.55);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.55);
+    transform: rotate(45deg);
+    animation: hero-nudge 2.4s ease-in-out infinite;
+
+    &:hover { border-color: $hero-fg; }
+
+    @media screen and (max-width: 768px) { display: none; }
+  }
+}
+
+@keyframes hero-nudge {
+  0%, 100% { transform: rotate(45deg) translate(0, 0); opacity: 0.55; }
+  50%      { transform: rotate(45deg) translate(5px, 5px); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll { animation: none; }
+}
+
+// Smooth anchor scrolling, and keep anchored targets clear of the fixed masthead.
+html { scroll-behavior: smooth; }
+
+#about { scroll-margin-top: 90px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
