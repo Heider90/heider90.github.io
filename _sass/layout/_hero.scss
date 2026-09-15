@@ -43,7 +43,9 @@ $hero-accent  : #c8463a;
   &__graphic {
     position: absolute;
     top: 50%;
-    right: -6%;
+    // Sat at -6% originally, which pushed the circle past the right edge where
+    // the hero's overflow:hidden clipped it. Flush keeps it whole.
+    right: 0;
     transform: translateY(-50%);
     width: min(66%, 960px);
     max-height: 112%;
