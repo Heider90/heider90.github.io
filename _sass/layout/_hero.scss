@@ -106,7 +106,12 @@ $hero-accent  : #c8463a;
   }
 
   &__rule {
-    width: 64px;
+    // Tracks the headline rather than sitting at a fixed width. "INTERNATIONAL"
+    // measures 8.68em of the title's font size (Montserrat 800, allowing for the
+    // -0.01em tracking), so match that font size here and run just past the L.
+    font-size: clamp(38px, 5.4vw, 68px);
+    width: 8.93em;
+    max-width: 100%;
     height: 2px;
     background: $hero-accent;
   }
